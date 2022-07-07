@@ -1,6 +1,7 @@
 .navtab {
     display: flex;
-    margin-bottom: 30px;
+    justify-content: center;
+    padding-bottom: 30px;
     background-color: black;
     width: 100%;
     background-color: black;
@@ -14,6 +15,7 @@
 }
 .navtab__btn {
     text-decoration: underline;
+    background-color: black;
 }
 .navtab__text {
     color: white;

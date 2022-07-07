@@ -14,7 +14,7 @@
     width: 100%;
     margin: 0;
     padding-bottom: 23px;
-    border-bottom: solid 1px #FFFFFF;
+    border-bottom: solid 1px black;
     color: black;
     font-size: 22px;
     font-weight: 400;
@@ -59,7 +59,7 @@
     width: 88px;
     height: 60px;
     text-align: center;
-    background-color: #303030;
+    background-color: #E8E8E8;
     border: solid 1px #303030;
     border-radius: 10px;
     list-style: none;
