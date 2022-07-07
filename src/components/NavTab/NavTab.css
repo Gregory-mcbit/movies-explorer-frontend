@@ -15,6 +15,7 @@
 }
 .navtab__btn {
     text-decoration: underline;
+    border: none;
     background-color: black;
 }
 .navtab__text {

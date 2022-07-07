@@ -89,7 +89,8 @@
     width: 80%;
 }
 .about__duration_front-end {
-    background-color: white;
+    background-color: #F2F2F2;
+    color: black
 }
 
 @media screen and (max-width: 1024px) {
