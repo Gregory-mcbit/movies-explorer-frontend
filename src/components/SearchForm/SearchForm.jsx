@@ -11,8 +11,8 @@ function SearchForm() {
           <div className="search__wrap">
             <input placeholder="Фильм" className="search__input" required/>
             <button type="submit" className="search__submit" />
+            <FilterCheckbox filterText="Короткометражки" />
           </div>
-          <FilterCheckbox filterText="Короткометражки" />
         </form>
       </div>
     </section>

@@ -4,6 +4,7 @@
   margin: 0 auto;
   justify-content: space-between;
   background-color: #073042;
+  margin-top: 0;
 }
 .promo__wrapper {
   display: flex;

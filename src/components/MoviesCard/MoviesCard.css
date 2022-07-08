@@ -1,8 +1,6 @@
 .card {
     max-width: 364px;
     list-style: none;
-    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
-    background-color: #222222;
     border-radius: 10px;
   }
   .card__image {
@@ -20,13 +18,13 @@
     top: 5px;
     transition: linear .4s;
     cursor: pointer;
-    background-image: url(../../images/save-card-icon.svg);
+    background-image: url(../../images/unlike.png);
     border: none;
+    border-radius: 10px;
     cursor: pointer;
     outline: none;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #202020;
   }
 
   .card:hover .card__icon {
@@ -38,7 +36,7 @@
   }
 
   .card__icon:active {
-    background-image: url(../../images/save-card-icon-active.svg);
+    background-image: url(../../images/like.png);
   }
 
   .card__description {
@@ -52,6 +50,8 @@
     margin: 0;
 
     color: black;
+    padding-bottom: 29px;
+    border-bottom: solid 1px #E8E8E8;
     font-weight: 500;
     font-size: 15px;
     line-height: 18px;
