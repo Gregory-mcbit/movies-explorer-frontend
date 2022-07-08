@@ -1,7 +1,7 @@
 import React from 'react';
 import './Register.css';
 import {Link} from 'react-router-dom';
-import logo from '../../images/header__logo.svg';
+import logo from '../../images/logo.png';
 import Form from "../Form/Form";
 
 function Register(props) {

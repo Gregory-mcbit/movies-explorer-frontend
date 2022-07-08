@@ -39,7 +39,7 @@
     font-size: 11px;
     font-weight: 500;
     line-height: 13px;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px #E8E8E8;
     padding-bottom: 16px;
   }
 
@@ -57,7 +57,7 @@
     font-size: 11px;
     font-weight: 400;
     line-height: 13px;
-    background: #202020;
+    background: white;
   }
 
   .profile__btn-edit {
@@ -74,7 +74,7 @@
 
   .profile__btn-logout {
     border: none;
-    background-color: #202020;
+    background-color: white;
 
     color: #EE3465;
     font-size: 13px;

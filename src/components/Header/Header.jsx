@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css'
 import {Link, useLocation} from "react-router-dom";
-import logo from '../../images/header__logo.svg'
+import logo from '../../images/logo.png'
 import Navigation from "../Navigation/Navigation";
 
 function Header() {
@@ -17,14 +17,16 @@ function Header() {
   return (
     <header className='header'>
       <div className="header__container">
-        <div className="header__wrapper">
-          <Link to="/">
-            <img className="header__logo" src={logo} alt="Логотип"/>
-          </Link>
+        <div className='header__flex'>
+          <div className="header__wrapper">
+            <Link to="/">
+              <img className="header__logo" src={logo} alt="Логотип"/>
+            </Link>
+          </div>
+          {pathname === "/" ? ("") : <Navigation/>}
         </div>
-        {pathname === "/" ? ("") : <Navigation/>}
         <div className={`header__wrapper ${pathname === "/" ? "" : "header__wrapper_burger"}`}>
-          <Link className='header__sign-text' to={`${pathname === "/" ? "/signup" : "/profile"}`}>
+          <Link className={pathname === "/" ? 'header__sign-text' : 'header__account-text' } to={`${pathname === "/" ? "/signup" : "/profile"}`}>
             {text}
           </Link>
           {pathname === "/" ? (
@@ -32,7 +34,7 @@ function Header() {
               Войти
             </Link>
           ) : (
-            <button className="header__btn-account" type="button"/>
+            <div/>
           )}
         </div>
         {pathname === "/" ? '' : (

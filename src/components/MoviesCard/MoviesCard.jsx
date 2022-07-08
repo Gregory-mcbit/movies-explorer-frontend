@@ -14,14 +14,14 @@ function MoviesCard(props) {
 
   return (
     <li className="card">
-      <div className="card__wrap">
-        <img className="card__image" src={testCard} alt="Тестовая карточка"/>
-      </div>
       <div className="card__description">
         <p className="card__name">33 слова о дизайне</p>
         <p className="card__duration">1ч 42м</p>
         {/* <img className="card__icon" src={cardIcon} alt="Тестовая иконка"/> */}
         <button className="card__icon" type="button" />
+      </div>
+      <div className="card__wrap">
+        <img className="card__image" src={testCard} alt="Тестовая карточка"/>
       </div>
     </li>
   );
