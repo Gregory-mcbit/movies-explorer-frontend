@@ -66,7 +66,7 @@ function Header() {
                 {pathname === "/" ? (
                   <Link to="/signin" className="header__btn-signin" type="button">Войти</Link>
                 ) : (
-                  <button className="header__btn-account" type="button" />
+                  <div />
                 )}
               </div>
             </div>

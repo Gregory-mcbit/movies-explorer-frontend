@@ -21,7 +21,7 @@
     top: 5px;
     transition: linear .4s;
     cursor: pointer;
-    background-image: url(../../images/unlike.png);
+    background-image: url(../../images/unlike.svg);
     border: none;
     /* border-radius: 10px; */
     background-color: white;
@@ -40,7 +40,7 @@
   }
 
   .card__icon:active {
-    background-image: url(../../images/like.png);
+    background-image: url(../../images/like.svg);
   }
 
   .card__description {

@@ -7,12 +7,17 @@ function SearchForm() {
     <section className="search">
       <div className="search__container">
         <form className="search__form">
-          <div className="search__wrap">
+          <div className="search__wrap search__wrap-577">
             <input placeholder="Фильм" className="search__input" required/>
-            <div className='search__flex'>
+            <button type="submit" className="search__submit" />
+            <FilterCheckbox filterText="Короткометражки" />
+          </div>
+          <div className="search__wrap search__wrap-576">
+            <div className='wrap'>
+              <input placeholder="Фильм" className="search__input" required/>
               <button type="submit" className="search__submit" />
-              <FilterCheckbox filterText="Короткометражки" />
             </div>
+            <FilterCheckbox filterText="Короткометражки" />
           </div>
         </form>
       </div>

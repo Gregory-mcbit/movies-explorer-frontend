@@ -23,6 +23,7 @@
 .navtab__text {
     color: black;
 }
+
 @media screen and (max-width: 576px) {
     .navtab {
       margin-bottom: 17px;
@@ -30,8 +31,12 @@
     .navtab__btn {
       width: 82px;
       height: 26px;
+      text-align: center;
     }
     .navtab__link {
         font-size: 10px;
+    }
+    .navtab__text {
+      margin: 0;
     }
   }
