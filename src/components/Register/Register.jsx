@@ -1,30 +1,112 @@
-import React from 'react';
-import './Register.css';
-import {Link} from 'react-router-dom';
-import logo from '../../images/logo.png';
-import Form from "../Form/Form";
+import "./Register.css";
+import { Link } from "react-router-dom";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
+import { useState } from "react";
 
-function Register(props) {
+export const Register = ({
+  onRegister,
+  clearErrors,
+  registerError,
+  setRegisterError,
+}) => {
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormWithValidation();
+
+  function handleRegister(e) {
+    e.preventDefault();
+    onRegister({
+      email: values.email,
+      name: values.name,
+      password: values.password,
+    });
+    resetForm();
+  }
+  function handleClearErrors() {
+    resetForm();
+    clearErrors();
+  }
+  function handleChangeInput(e) {
+    handleChange(e);
+    if (registerError.length > 0) {
+      setRegisterError("");
+    }
+  }
+
   return (
     <section className="register">
-      <div className="register__container">
-        <Link to="/"><img className="register__logo" src={logo} alt="Логотип"/></Link>
-        <h1 className="register__title">Добро пожаловать!</h1>
-        <Form
-          submitText={{
-            buttonText: "Зарегистрироваться",
-            promt: "Уже зарегистрированы?",
-            route: "/signin",
-            linkText: "Войти"
-          }}
-        >
-          <label htmlFor="name" className="form__label">Имя</label>
-          <input required id="name" className="form__input" minLength="2" type="text"/>
-          <span className='form__input-error'>Текст ошибки</span>
-        </Form>
-      </div>
+      <Link to="/" className="register__logo"></Link>
+      <h1 className="register__title">Добро пожаловать!</h1>
+      <form className="register__form" onSubmit={handleRegister}>
+        <fieldset className="register__fieldset">
+          <div className="register__field">
+            <p className="register__text">Имя</p>
+            <input
+              className="register__input"
+              type="text"
+              name="name"
+              value={values.name || ""}
+              onChange={handleChangeInput}
+              pattern="[а-яА-Яa-zA-ZёË\- ]{1,}"
+              required
+              minLength="2"
+              autoComplete="off"
+            />
+            <span className="register__error">{errors.name}</span>
+          </div>
+          <div className="register__field">
+            <p className="register__text">E-mail</p>
+            <input
+              className="register__input"
+              type="email"
+              name="email"
+              value={values.email || ""}
+              onChange={handleChangeInput}
+              required
+              autoComplete="off"
+              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+            />
+            <span className="register__error">{errors.email}</span>
+          </div>
+          <div className="register__field">
+            <p className="register__text">Пароль</p>
+            <input
+              className="register__input"
+              type="password"
+              name="password"
+              value={values.password || ""}
+              onChange={handleChangeInput}
+              required
+              minLength="8"
+              autoComplete="off"
+            />
+            <span className="register__error">{errors.password}</span>
+          </div>
+        </fieldset>
+        <div className="register__bottom">
+          <span className="register__error">{registerError}</span>
+          <button
+            className={
+              isValid
+                ? "register__button"
+                : "register__button register__button_invalid"
+            }
+            type="submit"
+            disabled={!isValid}
+          >
+            Зарегистрироваться
+          </button>
+          <div className="register__links">
+            <p className="register__answer">Уже зарегистрированы?</p>
+            <Link
+              className="register__link"
+              to="/signin"
+              onClick={handleClearErrors}
+            >
+              Войти
+            </Link>
+          </div>
+        </div>
+      </form>
     </section>
   );
-}
-
-export default Register;
+};

@@ -1,18 +1,25 @@
-import React from 'react';
-import Promo from "../Promo/Promo";
-import AboutProject from "../AboutProject/AboutProject";
-import Techs from "../Techs/Techs";
-import AboutMe from "../AboutMe/AboutMe";
+import { AboutMe } from "../AboutMe/AboutMe";
+import { AboutProject } from "../AboutProject/AboutProject";
+import { Footer } from "../Footer/Footer";
+import { Portfolio } from "../Portfolio/Portfolio";
+import { Promo } from "../Promo/Promo";
+import { Techs } from "../Techs/Techs";
 
-function Main() {
+export const Main = ({ isLogged }) => {
   return (
-    <main>
-      <Promo/>
+    <>
+      <Promo
+        isLogged={isLogged}
+        isMain={true}
+        isMovies={false}
+        isSavedMovies={false}
+        isProfile={false}
+      />
       <AboutProject />
       <Techs />
       <AboutMe />
-    </main>
+      <Portfolio />
+      <Footer />
+    </>
   );
-}
-
-export default Main;
+};

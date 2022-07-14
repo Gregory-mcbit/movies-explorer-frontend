@@ -1,18 +1,29 @@
-import React from 'react';
-import './Promo.css';
-import NavTab from "../NavTab/NavTab";
+import { Header } from "../Header/Header";
+import { NavTab } from "../NavTab/NavTab";
+import "./Promo.css";
 
-function Promo() {
+export const Promo = ({
+  isLogged,
+  isProfile,
+  isMain,
+  isMovies,
+  isSavedMovies,
+}) => {
   return (
-    <section className='promo'>
-      <div className='promo__container'>
-        <div className='promo__wrapper'>
-          <h1 className='promo__title'>Учебный проект студента факультета Веб-разработки.</h1>
-          <NavTab/>
-        </div>
-      </div>
-    </section>
+    <>
+      <Header
+        isLogged={isLogged}
+        isMain={isMain}
+        isMovies={isMovies}
+        isSavedMovies={isSavedMovies}
+        isProfile={isProfile}
+      />
+      <section className="promo">
+        <h1 className="promo__title">
+          Учебный проект студента факультета Веб-разработки.
+        </h1>
+        <NavTab />
+      </section>
+    </>
   );
-}
-
-export default Promo;
+};
