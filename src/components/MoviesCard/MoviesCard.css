@@ -1,0 +1,94 @@
+.card {
+    max-width: 364px;
+    list-style: none;
+    border-radius: 10px;
+    offset: 0px 4px;
+    border: #FDFDFD 1px solid;
+  }
+
+  .card__image {
+    max-width: 364px;
+  }
+  .card__wrap {
+    position: relative;
+  }
+
+  .card__icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    transition: linear .4s;
+    cursor: pointer;
+    background-image: url(../../images/unlike.svg);
+    border: none;
+    /* border-radius: 10px; */
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .card:hover .card__icon {
+    display: block;
+  }
+
+  .card__icon:hover {
+    transform: scale(1.2);
+  }
+
+  .card__icon:active {
+    background-image: url(../../images/like.svg);
+  }
+
+  .card__description {
+    margin: 14px 14px 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card__name {
+    margin: 0;
+
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .card__duration {
+    margin: 0;
+    padding-bottom: 14px;
+    padding-top: 9px;
+    color: #A0A0A0;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 10px;
+  }
+
+  @media screen and (max-width: 1024px) {
+
+    .card {
+      max-width: 330px;
+    }
+
+    .card__image {
+      max-width: 330px;
+    }
+
+  }
+
+  @media screen and (max-width: 576px) {
+
+    .card {
+      max-width: 300px;
+    }
+
+    .card__image {
+      max-width: 300px;
+    }
+
+  }
