@@ -34,11 +34,10 @@ export const SearchForm = ({
         <input
           className="search-form__input"
           onChange={handleChangeInput}
-          value={isSaved ? localStorage.getItem("savedSearch") : localStorage.getItem("search")}
+          value={textInput}
           type="text"
-          placeholder="Фильм"
+          placeholder={isSaved ? localStorage.getItem("savedSearch") : localStorage.getItem("search")}
           required
-          minLength="2"
         />
         <div className="search-form__right">
           <button
