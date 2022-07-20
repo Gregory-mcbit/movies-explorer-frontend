@@ -14,16 +14,19 @@ export const SearchForm = ({
   function handleChangeInput(e) {
     setTextInput(e.target.value);
     setValidForm(e.target.checkValidity());
+    if (isSaved) {
+      localStorage.setItem("savedSearch", textInput);
+    } else {
+      localStorage.setItem("search", textInput);
+    }
   }
   function handleSearchMovies(e) {
     e.preventDefault();
     searchMovies(textInput);
-    localStorage.setItem("search", textInput);
   }
   function handleSearchSavedMovies(e) {
     e.preventDefault();
     searchSavedMovies(textInput);
-    localStorage.setItem("savedSearch", textInput);
   }
 
   return (
