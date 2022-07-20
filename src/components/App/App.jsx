@@ -192,7 +192,6 @@ function App() {
   function searchMovies(searchText) {
     setServerError(false);
     setIsLoadingMovies(true);
-    localStorage.setItem("search", searchText);
     if (moviesCollection.length > 0) {
       const result = search(moviesCollection, searchText);
       if (result.length > 0) {
@@ -234,7 +233,6 @@ function App() {
   function searchSavedMovies(searchText) {
     setServerError(false);
     setIsLoadingMovies(true);
-    localStorage.setItem("savedSearch", searchText);
     if (savedMoviesCollection.length > 0) {
       const result = search(savedMoviesCollection, searchText);
       if (result.length > 0) {

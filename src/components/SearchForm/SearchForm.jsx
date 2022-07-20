@@ -18,10 +18,12 @@ export const SearchForm = ({
   function handleSearchMovies(e) {
     e.preventDefault();
     searchMovies(textInput);
+    localStorage.setItem("search", textInput);
   }
   function handleSearchSavedMovies(e) {
     e.preventDefault();
     searchSavedMovies(textInput);
+    localStorage.setItem("savedSearch", textInput);
   }
 
   return (
@@ -34,7 +36,7 @@ export const SearchForm = ({
         <input
           className="search-form__input"
           onChange={handleChangeInput}
-          value={textInput}
+          value={isSaved ? localStorage.getItem("savedSearch") : localStorage.getItem("search")}
           type="text"
           placeholder="Фильм"
           required
