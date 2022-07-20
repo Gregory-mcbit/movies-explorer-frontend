@@ -345,7 +345,7 @@ function App() {
     });
   }
 
-  unction changeProfile({ name, email }) {                 // сделать подпись об успешном изменении профиля
+  function changeProfile({ name, email }) {                 // сделать подпись об успешном изменении профиля
     MainApi.editUserProfile({ token, name, email })
       .then((newUser) => {
         if (newUser._id) {
