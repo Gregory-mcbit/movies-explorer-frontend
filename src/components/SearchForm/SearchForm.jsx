@@ -35,7 +35,7 @@ export const SearchForm = ({
         <input
           className="search-form__input"
           onChange={handleChangeInput}
-          value={JSON.stringify(localStorage.getItem("search")).length === null ? "" : !isSaved ? JSON.stringify(localStorage.getItem("search")).slice(1, -1) : ""}
+          value={localStorage.getItem("search") === null ? "" : !isSaved ? JSON.stringify(localStorage.getItem("search")).slice(1, -1) : ""}
           type="text"
           placeholder="Фильм"
           required
