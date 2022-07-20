@@ -146,7 +146,7 @@ function App() {
       })
       .catch((err) => {
         if (err === 400) return setLoginError("Не передано одно из полей");
-        if (err === 401) return setLoginError("Пользователь с email не найден");
+        if (err === 401) return setLoginError("Пароль или email указаны неверно");
         setLoginError("Попробуйте еще раз!");
         console.log(err);
       });
@@ -168,6 +168,8 @@ function App() {
     localStorage.removeItem("isCheckedSaved");
     localStorage.removeItem("shortResult");
     localStorage.removeItem("shortResultSaved");
+    localStorage.removeItem("search");
+    localStorage.removeItem("savedSearch");
     setIsLogged(false);
     setMoviesCollection([]);
     setSavedMoviesCollection([]);
@@ -190,6 +192,7 @@ function App() {
   function searchMovies(searchText) {
     setServerError(false);
     setIsLoadingMovies(true);
+    localStorage.setItem("search", searchText);
     if (moviesCollection.length > 0) {
       const result = search(moviesCollection, searchText);
       if (result.length > 0) {
@@ -231,6 +234,7 @@ function App() {
   function searchSavedMovies(searchText) {
     setServerError(false);
     setIsLoadingMovies(true);
+    localStorage.setItem("savedSearch", searchText);
     if (savedMoviesCollection.length > 0) {
       const result = search(savedMoviesCollection, searchText);
       if (result.length > 0) {
@@ -341,7 +345,7 @@ function App() {
     });
   }
 
-  function changeProfile({ name, email }) {
+  unction changeProfile({ name, email }) {                 // сделать подпись об успешном изменении профиля
     MainApi.editUserProfile({ token, name, email })
       .then((newUser) => {
         if (newUser._id) {
@@ -442,7 +446,7 @@ function App() {
             />
           )}
         </Route>
-        <Route path="*">
+        <Route path="#">
           <NotFound />
         </Route>
       </Switch>
