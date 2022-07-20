@@ -10,23 +10,20 @@ export const SearchForm = ({
   isFilterSavedMovies,
 }) => {
   const [validForm, setValidForm] = React.useState(true);
-  const [textInput, setTextInput] = React.useState("");
+  const [textInput, setTextInput] = React.useState(isSaved ? JSON.stringify(localStorage.getItem("savedSearch")) : JSON.stringify(localStorage.getItem("search")));
   function handleChangeInput(e) {
     setTextInput(e.target.value);
     setValidForm(e.target.checkValidity());
-    if (isSaved) {
-      localStorage.setItem("savedSearch", textInput);
-    } else {
-      localStorage.setItem("search", textInput);
-    }
   }
   function handleSearchMovies(e) {
     e.preventDefault();
     searchMovies(textInput);
+    localStorage.setItem("search", textInput);
   }
   function handleSearchSavedMovies(e) {
     e.preventDefault();
     searchSavedMovies(textInput);
+    localStorage.setItem("savedSearch", textInput);
   }
 
   return (
@@ -39,7 +36,7 @@ export const SearchForm = ({
         <input
           className="search-form__input"
           onChange={handleChangeInput}
-          value={isSaved ? localStorage.getItem("savedSearch") : localStorage.getItem("search")}
+          value={textInput}
           type="text"
           placeholder="Фильм"
           required
