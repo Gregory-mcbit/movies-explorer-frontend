@@ -19,6 +19,7 @@ export const SearchForm = ({
     e.preventDefault();
     searchMovies(textInput);
     localStorage.setItem("search", textInput);
+    setTextInput(JSON.stringify(localStorage.setItem("search")).slice(1, -1));
   }
   function handleSearchSavedMovies(e) {
     e.preventDefault();
