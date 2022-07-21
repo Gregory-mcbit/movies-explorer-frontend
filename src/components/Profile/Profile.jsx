@@ -26,6 +26,7 @@ export const Profile = ({
       const name = nameRef.current.value;
       const email = emailRef.current.value;
       changeProfile({ name, email });
+      setProfileError("Данные профиля успешно изменены")
       resetForm();
     }
   };
