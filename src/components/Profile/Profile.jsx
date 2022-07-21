@@ -13,6 +13,7 @@ export const Profile = ({
   const currentUser = React.useContext(CurrentUserContext);
   const nameRef = React.useRef("");
   const emailRef = React.useRef("");
+  const [successText, makeSuccessText] = React.useState("");
   const { handleChange, errors, isValid, resetForm } = useFormWithValidation({
     name: nameRef.current.value,
     email: emailRef.current.value,
@@ -25,8 +26,8 @@ export const Profile = ({
     if (isValid) {
       const name = nameRef.current.value;
       const email = emailRef.current.value;
+      makeSuccessText("Данные профиля успешно обновлены");
       changeProfile({ name, email });
-      setProfileError("Данные профиля успешно изменены")
       resetForm();
     }
   };
@@ -105,6 +106,7 @@ export const Profile = ({
           </div>
         </div>
         <div className="profile__buttons">
+        <span className="profile__success">{successText}</span>
           <button
             className={
               isValid
