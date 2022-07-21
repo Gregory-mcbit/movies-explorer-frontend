@@ -11,6 +11,11 @@ export const SearchForm = ({
 }) => {
   const [validForm, setValidForm] = React.useState(true);
   const [textInput, setTextInput] = React.useState("");
+
+  React.useEffect(() => {
+    setTextInput(JSON.stringify(localStorage.setItem("search")).slice(1, -1));
+  }, []);
+
   function handleChangeInput(e) {
     setTextInput(e.target.value);
     setValidForm(e.target.checkValidity());
