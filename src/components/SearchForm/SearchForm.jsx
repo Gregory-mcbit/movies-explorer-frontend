@@ -12,18 +12,17 @@ export const SearchForm = ({
   const [validForm, setValidForm] = React.useState(true);
   const [textInput, setTextInput] = React.useState("");
 
-  React.useEffect(() => {
-    setTextInput(JSON.stringify(localStorage.setItem("search")).slice(1, -1));
-  }, []);
-
   function handleChangeInput(e) {
     setTextInput(e.target.value);
     setValidForm(e.target.checkValidity());
+
+    if (!isSaved) {
+      localStorage.setItem("search", textInput);
+    }
   }
   function handleSearchMovies(e) {
     e.preventDefault();
     searchMovies(textInput);
-    localStorage.setItem("search", textInput);
     setTextInput(JSON.stringify(localStorage.setItem("search")).slice(1, -1));
   }
   function handleSearchSavedMovies(e) {
