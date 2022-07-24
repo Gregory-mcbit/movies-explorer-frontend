@@ -1,81 +1,26 @@
-import React from 'react';
-import './Header.css'
-import {Link, useLocation} from "react-router-dom";
-import logo from '../../images/logo.png'
-import Navigation from "../Navigation/Navigation";
+import { Link } from "react-router-dom";
+import { Navigation } from "../Navigation/Navigation";
+import "./Header.css";
 
-function Header() {
-  const {pathname} = useLocation();
-  const text = `${pathname === "/" ? "Регистрация" : "Аккаунт"}`;
-
-  const [activeBurger, setActiveBurger] = React.useState(false);
-
-  function handleActiveBurger() {
-    setActiveBurger(!activeBurger);
-  }
-
+export const Header = ({
+  isLogged,
+  isMain,
+  isProfile,
+  isMovies,
+  isSavedMovies,
+  onClick,
+}) => {
   return (
-    <header className='header'>
-      <div className="header__container">
-        <div className='header__flex'>
-          <div className="header__wrapper">
-            <Link to="/">
-              <img className="header__logo" src={logo} alt="Логотип"/>
-            </Link>
-          </div>
-          {pathname === "/" ? ("") : <Navigation/>}
-        </div>
-        <div className={`header__wrapper ${pathname === "/" ? "" : "header__wrapper_burger"}`}>
-          <Link className={pathname === "/" ? 'header__sign-text' : 'header__account-text' } to={`${pathname === "/" ? "/signup" : "/profile"}`}>
-            {text}
-          </Link>
-          {pathname === "/" ? (
-            <Link to="/signin" className="header__btn-signin" type="button">
-              Войти
-            </Link>
-          ) : (
-            <div/>
-          )}
-        </div>
-        {pathname === "/" ? '' : (
-          <>
-            <div className={`header__burger ${activeBurger ? 'header__burger_active' : ''}`}
-                 onClick={handleActiveBurger}>
-              <div className="header__burger-line"/>
-              <div className="header__burger-line"/>
-              <div className="header__burger-line"/>
-            </div>
-            <div className={`header__burger-menu-wrap ${activeBurger ? 'header__burger-menu-wrap_active' : ''}`}
-                 onClick={handleActiveBurger}>
-              <nav className="header__burger-nav">
-                <ul className="header__burger-list">
-                  <li className="header__burger-item">
-                    <Link className="header__burger-link" to="/">Главная</Link>
-                  </li>
-                  <li className="header__burger-item">
-                    <Link className="header__burger-link" to="/movies">Фильмы</Link>
-                  </li>
-                  <li className="header__burger-item">
-                    <Link className="header__burger-link" to="/saved-movies">Сохранённые фильмы</Link>
-                  </li>
-                </ul>
-              </nav>
-              <div
-                className={`header__wrapper header__wrapper_burger-menu ${pathname === "/" ? "header__wrapper_burger" : ""}`}>
-                <Link className='header__sign-text' to={`${pathname === "/" ? "/signup" : "/profile"}`}>{text}</Link>
-                {pathname === "/" ? (
-                  <Link to="/signin" className="header__btn-signin" type="button">Войти</Link>
-                ) : (
-                  <div />
-                )}
-              </div>
-            </div>
-          </>
-        )}
-
-      </div>
+    <header className="header">
+      <Link className="header__logo" to="/"></Link>
+      <Navigation
+        isLogged={isLogged}
+        isMain={isMain}
+        isProfile={isProfile}
+        isMovies={isMovies}
+        isSavedMovies={isSavedMovies}
+        onClick={onClick}
+      />
     </header>
   );
-}
-
-export default Header;
+};

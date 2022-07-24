@@ -1,26 +1,24 @@
-import React from 'react';
-import './NavTab.css';
+import { HashLink } from "react-router-hash-link";
+import "./NavTab.css";
 
-function NavTab(props) {
+export const NavTab = () => {
   return (
-    <section className='navtab'>
-      <a className='navtab__link' href='#about'>
-        <button className='navtab__btn'>
-          <p className="navtab__text">О проекте</p>
-        </button>
-      </a>
-      <a className='navtab__link' href=''>
-        <button className='navtab__btn'>
-          <p className="navtab__text">Технологии</p>
-        </button>
-      </a>
-      <a className='navtab__link' href=''>
-        <button className='navtab__btn'>
-          <p className="navtab__text">Студент</p>
-        </button>
-      </a>
-    </section>
+    <nav className="nav-tab">
+      <div className="nav-tab__wrapper">
+        <HashLink to="/#project" className="nav-tab__link">
+          О проекте
+        </HashLink>
+      </div>
+      <div className="nav-tab__wrapper">
+        <HashLink to="/#techs" className="nav-tab__link">
+          Технологии
+        </HashLink>
+      </div>
+      <div className="nav-tab__wrapper">
+        <HashLink to="/#about" className="nav-tab__link">
+          Студент
+        </HashLink>
+      </div>
+    </nav>
   );
-}
-
-export default NavTab;
+};
